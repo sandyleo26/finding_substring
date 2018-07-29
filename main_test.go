@@ -50,6 +50,11 @@ func TestSearch(t *testing.T) {
 	textToSearch = "Peter told me that peter the pickle piper piped a pitted pickle before he petered out. Phew!"
 	text = "Peterz"
 	assert.Equal(t, NotFound, Search(textToSearch, text))
+
+	textToSearch = "上AB上ab"
+	text = "上aB"
+	assert.Equal(t, "1, 4", Search(textToSearch, text))
+
 }
 
 func TestToLowerCase(t *testing.T) {

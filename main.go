@@ -28,7 +28,13 @@ func Search(textToSearch, subtext string) string {
 	lowerSubtext := ToLowerCase(subtext)
 
 	results := make([]string, 0)
-	for i := 0; i <= len(lowerTextToSearch)-len(lowerSubtext); i++ {
+	count := 0
+	for i := range lowerTextToSearch {
+		count += 1
+		if i > len(lowerTextToSearch)-len(lowerSubtext) {
+			break
+		}
+
 		found := true
 		for j := 0; j < len(lowerSubtext); j++ {
 			if lowerTextToSearch[i+j] != lowerSubtext[j] {
@@ -38,8 +44,7 @@ func Search(textToSearch, subtext string) string {
 		}
 
 		if found {
-			results = append(results, strconv.Itoa(i+1))
-			i += len(lowerSubtext)
+			results = append(results, strconv.Itoa(count))
 		}
 	}
 
