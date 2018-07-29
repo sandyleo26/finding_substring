@@ -10,14 +10,12 @@ import (
 const NotFound = "<No Output>"
 
 func main() {
-	fmt.Println("Hello World!")
-
 	if len(os.Args) != 3 {
 		fmt.Println("Usage: main text_to_search subtext")
 		return
 	}
 
-	Search(os.Args[1], os.Args[2])
+	fmt.Println(Search(os.Args[1], os.Args[2]))
 }
 
 //Search finds occurrences of subtext in textToSearch
